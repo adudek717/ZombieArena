@@ -98,6 +98,9 @@ public:
 	// Give the player a speed boost
 	void upgradeSpeed();
 
+	// Increases the max hp
+	void upgradeHealth();
+
 	// Increase the maximum amount of health the player can have
 	void increaseHealthLevel(int amount);
 

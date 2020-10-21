@@ -188,3 +188,28 @@ void Player::update(float elapsedTime, Vector2i mousePosition)
 		* 180) / 3.141;
 	m_Sprite.setRotation(angle);
 }
+
+void Player::upgradeSpeed()
+{
+	// 20% speed upgrade
+	m_Speed += (START_SPEED * .2);
+}
+
+void Player::upgradeHealth()
+{
+	// 20% max health upgrade
+	m_MaxHealth += (START_HEALTH * .2);
+
+}
+
+void Player::increaseHealthLevel(int amount)
+{
+	m_Health += amount;
+
+	// But no beyond the maximum
+	if (m_Health > m_MaxHealth)
+	{
+		m_Health = m_MaxHealth;
+	}
+}
+// page 216 (247 z 746)
