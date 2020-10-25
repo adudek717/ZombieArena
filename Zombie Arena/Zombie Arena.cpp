@@ -191,6 +191,71 @@ int main()
 			}
 		}// End LEVELING up
 
+		/*
+		****************
+		UPDATE THE FRAME
+		****************
+		*/
+		if (state == State::PLAYING)
+		{
+			// Update the delta time
+			Time dt = clock.restart();
+
+			// Update the total game time
+			gameTimeTotal += dt;
+
+			// Make a decimal fraction of 1 from the delta time
+			float dtAsSeconds = dt.asSeconds();
+
+			// Where is the mouse pointer
+			mouseScreenPosition = Mouse::getPosition();
+
+			// Convert mouse position to world coordinates of mainView
+			mouseWorldPosition = window.mapPixelToCoords(
+				Mouse::getPosition(), mainView);
+
+			// Update the player
+			player.update(dtAsSeconds, Mouse::getPosition());
+
+			// Make a note of the players new position
+			Vector2f playerPosition(player.getCenter());
+
+			// Make the view centre around the player
+			mainView.setCenter(player.getCenter());
+		}// End updating the screen
+
+		/*
+		**************
+		Draw the scene
+		**************
+		*/
+
+		if (state == State::PLAYING)
+		{
+			window.clear();
+
+			// set the mainView to be displayed in the window
+			// And draw everything related to it
+			window.setView(mainView);
+
+			// Draw the player
+			window.draw(player.getSprite());
+		}
+
+		if (state == State::LEVELING_UP)
+		{
+		}
+
+		if (state == State::PAUSED)
+		{
+		}
+
+		if (state == State::GAME_OVER)
+		{
+		}
+
+		window.display();
+
 	}// End game loop
 
 
