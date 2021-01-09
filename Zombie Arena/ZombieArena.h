@@ -3,5 +3,3 @@
 
 using namespace sf;
 int createBackground(VertexArray& rVA, IntRect arena);
-
-// 245 strona
