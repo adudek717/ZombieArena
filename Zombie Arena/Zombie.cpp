@@ -13,7 +13,7 @@ void Zombie::spawn(float startX, float startY, int type, int seed)
 	case 0:
 		// Bloater
 		m_Sprite = Sprite(TextureHolder::GetTexture(
-			"graphics/bloater.png"));
+			"../graphics/bloater.png"));
 
 		m_Speed = BLOATER_SPEED;
 		m_Health = BLOATER_HEALTH;
@@ -22,7 +22,7 @@ void Zombie::spawn(float startX, float startY, int type, int seed)
 	case 1:
 		// Chaser
 		m_Sprite = Sprite(TextureHolder::GetTexture(
-			"graphics/chaser.png"));
+			"../graphics/chaser.png"));
 
 		m_Speed = CHASER_HEALTH;
 		m_Health = CHASER_HEALTH;
@@ -31,7 +31,7 @@ void Zombie::spawn(float startX, float startY, int type, int seed)
 	case 2:
 		// Crawler
 		m_Sprite = Sprite(TextureHolder::GetTexture(
-			"graphics/crawler.png"));
+			"../graphics/crawler.png"));
 
 		m_Speed = CRAWLER_HEALTH;
 		m_Health = CRAWLER_HEALTH;
@@ -69,7 +69,7 @@ bool Zombie::hit()
 		// dead
 		m_Alive = false;
 		m_Sprite.setTexture(TextureHolder::GetTexture(
-			"graphics/blood.png"));
+			"../graphics/blood.png"));
 
 		return true;
 	}
