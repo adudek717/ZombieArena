@@ -408,7 +408,23 @@ int main()
 				}
 			}//End player touched
 
-		}// End updating the screen
+			// Has the player touched health pickup
+			if (player.getPosition().intersects
+			(healthPickup.getPosition()) && healthPickup.isSpawned())
+			{
+				player.increaseHealthLevel(healthPickup.gotIt());
+
+			}
+
+			// Has the player touched ammo pickup
+			if (player.getPosition().intersects
+			(ammoPickup.getPosition()) && ammoPickup.isSpawned())
+			{
+				bulletsSpare += ammoPickup.gotIt();
+
+			}
+
+		}// End updating the scene
 
 		/*
 		**************
