@@ -106,7 +106,7 @@ int main()
 	Texture textureAmmoIcon = TextureHolder::GetTexture(
 		"../graphics/ammo_icon.png");
 	spriteAmmoIcon.setTexture(textureAmmoIcon);
-	spriteAmmoIcon.setPosition(20, 980);
+	spriteAmmoIcon.setPosition(20, resolution.y - 100);
 
 	// Load the font
 	Font font;
@@ -117,7 +117,7 @@ int main()
 	pausedText.setFont(font);
 	pausedText.setCharacterSize(155);
 	pausedText.setFillColor(Color::White);
-	pausedText.setPosition(400, 400);
+	pausedText.setPosition(700, 700);
 	pausedText.setString("Press Enter \nto continue");
 
 	// Game Over
@@ -125,7 +125,7 @@ int main()
 	gameOverText.setFont(font);
 	gameOverText.setCharacterSize(125);
 	gameOverText.setFillColor(Color::White);
-	gameOverText.setPosition(250, 850);
+	gameOverText.setPosition(700, resolution.y - 440);
 	gameOverText.setString("Press Enter to play");
 
 	// LEVELING up
@@ -133,7 +133,7 @@ int main()
 	levelUpText.setFont(font);
 	levelUpText.setCharacterSize(80);
 	levelUpText.setFillColor(Color::White);
-	levelUpText.setPosition(150, 250);
+	levelUpText.setPosition(700, 250);
 	std::stringstream levelUpStream;
 	levelUpStream <<
 		"1- Increased rate of fire" <<
@@ -149,7 +149,7 @@ int main()
 	ammoText.setFont(font);
 	ammoText.setCharacterSize(55);
 	ammoText.setFillColor(Color::White);
-	ammoText.setPosition(200, 980);
+	ammoText.setPosition(200, resolution.y - 100);
 
 	// Score
 	Text scoreText;
@@ -163,7 +163,7 @@ int main()
 	hiScoreText.setFont(font);
 	hiScoreText.setCharacterSize(55);
 	hiScoreText.setFillColor(Color::White);
-	hiScoreText.setPosition(1400, 0);
+	hiScoreText.setPosition(2300, 0);
 	std::stringstream s;
 	s << "Hi Score:" << hiScore;
 	hiScoreText.setString(s.str());
@@ -173,7 +173,7 @@ int main()
 	zombiesRemainingText.setFont(font);
 	zombiesRemainingText.setCharacterSize(55);
 	zombiesRemainingText.setFillColor(Color::White);
-	zombiesRemainingText.setPosition(1500, 980);
+	zombiesRemainingText.setPosition(1900, resolution.y - 100);
 	zombiesRemainingText.setString("Zombies: 100");
 
 	// Wave number
@@ -182,13 +182,13 @@ int main()
 	waveNumberText.setFont(font);
 	waveNumberText.setCharacterSize(55);
 	waveNumberText.setFillColor(Color::White);
-	waveNumberText.setPosition(1250, 980);
+	waveNumberText.setPosition(2300, resolution.y - 100);
 	waveNumberText.setString("Wave: 0");
 
 	// Health bar
 	RectangleShape healthBar;
 	healthBar.setFillColor(Color::Red);
-	healthBar.setPosition(450, 980);
+	healthBar.setPosition(450, resolution.y - 100);
 
 	// Debug HUD
 	Text debugText;
