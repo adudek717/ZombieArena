@@ -298,12 +298,15 @@ int main()
 					wave = 0;
 					score = 0;
 
+					
+
 					// Prepare the gun and ammo for next game
 					currentBullet = 0;
 					bulletsSpare = 24;
 					bulletsInClip = 6;
 					clipSize = 6;
 					fireRate = 1;
+					std::cout << "Next level!" << endl;
 
 					// Reset the player's stats
 					player.resetPlayerStats();
@@ -331,16 +334,10 @@ int main()
 				if (bulletsSpare >= clipSize)
 				{
 					if (canReload == true) {
-						printf("\nBullets spare before reload: ");
-						std::cout << bulletsSpare << endl;
 						// Plenty of bullets. Reload.
 						bulletsInClip = clipSize;
 						bulletsSpare -= clipSize;
-						reload.play();
-						//printf("First reload scenario\n");
-
-						printf("\nBullets spare after reload: ");
-						std::cout << bulletsSpare << endl;
+						reload.play();	
 						canReload = false;
 					}
 					
@@ -351,7 +348,6 @@ int main()
 					bulletsInClip = bulletsSpare;
 					bulletsSpare = 0;
 					reload.play();
-					//printf("Second reload scenario\n");
 				}
 				else
 				{
@@ -476,6 +472,12 @@ int main()
 
 			if (state == State::PLAYING)
 			{
+
+				// Prepare the gun and ammo for next level
+				currentBullet = 0;
+				bulletsSpare = 24;
+				bulletsInClip = 6;
+
 				// Increase the wave number
 				wave++;
 
@@ -509,7 +511,7 @@ int main()
 				powerup.play();
 
 				// Reset the clock so there isn't a frame jump
-				clock.restart();
+				clock.restart();		
 			}
 		}// End LEVELING up
 
